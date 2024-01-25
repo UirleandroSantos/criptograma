@@ -8,7 +8,7 @@ function criptografar(){
                                        .replace(/e/g, 'Z&d')
                                        .replace(/i/g, 'fL0')
                                        .replace(/o/g, 'Ky')
-                                       .replace(/u/g, 'ibis');
+                                       .replace(/u/g, 'ibis')
 }
 
 function descriptografar(){
@@ -17,5 +17,5 @@ function descriptografar(){
                                          .replace(/Z&d/g, 'e')
                                          .replace(/fL0/g, 'i')
                                          .replace(/Ky/g, 'o')
-                                         .replace(/ibis/g, 'u')
+                                         .replace(/ibis/g, 'u');
 }
