@@ -12,31 +12,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="container-logo">Us</h1>
-    
-        <section class="container-input">
-            <textarea name="" id="texto" cols="30" rows="10" placeholder="Digite sua mensagem"></textarea>
-            <div>
-                <div class="container-input-info">
-                    <img src="./assets/bi_exclamation-circle-fill.svg" alt="">
-                    <p>Apenas letras minúsculas e sem acento.</p>
+    <section class="wrap">
+        <div class="container">
+            <h1 class="container-logo">Us</h1>
+        
+            <section class="container-input">
+                <textarea name="" id="texto" cols="30" rows="10" placeholder="Digite o texto aqui"></textarea>
+                <div>
+                    <div class="container-input-info">
+                        <img src="./assets/bi_exclamation-circle-fill.svg" alt="">
+                        <p>Apenas letras minúsculas e sem acento.</p>
+                    </div>
+                    <div class="container-input-buttons">
+                        <button onclick="criptografar()" class="criptografar">Criptografar</button>
+                        <button onclick="descriptografar()" class="descriptografar">Descriptografar</button>
+                    </div>
                 </div>
-                <div class="container-input-buttons">
-                    <button onclick="criptografar()" class="criptografar">Criptografar</button>
-                    <button onclick="descriptografar()" class="descriptografar">Descriptografar</button>
+            </section>
+        
+            <section id="saida-de-texto" class="container-output">
+                <img src="./assets/High quality products 1 1.svg" alt="">
+                <div class="container-output-texts">
+                    <strong>Nenhuma mensagem encontrada</strong>
+                    <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
                 </div>
-            </div>
-        </section>
-    
-        <section id="saida-de-texto" class="container-output">
-            <img src="./assets/High quality products 1 1.svg" alt="">
-            <div class="container-output-texts">
-                <strong>Nenhuma mensagem encontrada</strong>
-                <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
-            </div>
-        </section>
-    </div>
+                <button class="button-copy" id="button-copy">Copiar</button>
+            </section>
+        </div>
+        <footer><span>Desenvolvido por <strong>Uirleandro Santos</strong></span></footer>
+    </section>
 
     <script src="script.js"></script>
 </body>
