@@ -1,6 +1,6 @@
 let texto = document.querySelector('#texto');
 let saidaDeTexto = document.querySelector('#saida-de-texto');
-let buttonCopy = document.querySelector('#button-copy');
+
 
 let substituicoesCriptografar = {
     'a': 'ai',
@@ -18,24 +18,56 @@ let substituicoesDescriptografar = {
     'ufat': 'u'
 }
 
+
 function criptografar(){
+    texto.focus()
+
+
     let textoEntrada = texto.value.toLowerCase();
     let textoFinal = textoEntrada.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-    saidaDeTexto.innerHTML = textoFinal.replace(/[a|e|i|ou]/g, e => substituicoesCriptografar[e] || e);
 
-    let botao = document.createElement('button');
-    saidaDeTexto.appendChild(botao);
-    botao.classList.add('active');
-    botao.innerHTML = 'Copiar';
+    if(textoEntrada == 0){
+        alert('Digite alguma coisa')
+    } else {
+        saidaDeTexto.innerHTML = textoFinal.replace(/[a|e|i|ou]/g, e => substituicoesCriptografar[e] || e);
+        
+        let botao = document.createElement('button');
+        saidaDeTexto.appendChild(botao);
+        botao.classList.add('active');
+        botao.innerHTML = 'Copiar';
+        botao.style.marginBottom = '1.5rem';
+
+        botao.addEventListener('click', () => {
+            texto.focus()
+            navigator.clipboard.writeText(saidaDeTexto.firstChild.data);
+            alert('Texto copiado!!!');
+        })        
+    }
+    document.querySelector('#texto').value = '';
 }
 
 function descriptografar(){
+    texto.focus()
     let textoEntrada = texto.value.toLowerCase();
     let textoFinal = textoEntrada.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-    saidaDeTexto.innerHTML = textoFinal.replace(/ai|enter|imes|ober|ufat/g, e => substituicoesDescriptografar[e] || e)
+    
+    if(textoEntrada == 0){
+        alert('Digite alguma coisa')
+    } else {
+        
+        saidaDeTexto.innerHTML = textoFinal.replace(/ai|enter|imes|ober|ufat/g, e => substituicoesDescriptografar[e] || e)
+        let botao = document.createElement('button');
+        saidaDeTexto.appendChild(botao);
+        botao.classList.add('active');
+        botao.innerHTML = 'Copiar';
+        botao.style.marginBottom = '1.5rem';
 
-    let botao = document.createElement('button');
-    saidaDeTexto.appendChild(botao);
-    botao.classList.add('active');
-    botao.innerHTML = 'Copiar';
+        botao.addEventListener('click', () => {
+            texto.focus()
+            navigator.clipboard.writeText(saidaDeTexto.firstChild.data);
+            alert('Texto copiado!!!');
+        }) 
+    }
+    document.querySelector('#texto').value = '';
 }
+
